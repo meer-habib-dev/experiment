@@ -1,0 +1,30 @@
+appId: com.meernabib.nativelab
+---
+- launchApp
+- tapOn:
+    text: "Open"
+    optional: true
+- tapOn:
+    text: "Continue"
+    optional: true
+- openLink: native-lab://experiments/volcano-drive
+- tapOn:
+    text: "Open"
+    optional: true
+- extendedWaitUntil:
+    visible: "TOUCH TO DRIVE"
+    timeout: 30000
+- takeScreenshot: volcano-drive-ready
+- tapOn: "TOUCH TO DRIVE"
+- extendedWaitUntil:
+    notVisible: "TOUCH TO DRIVE"
+    timeout: 3000
+- takeScreenshot: volcano-drive-running
+- extendedWaitUntil:
+    visible: "DRIVE AGAIN"
+    timeout: 45000
+- takeScreenshot: volcano-drive-crashed
+- tapOn: "DRIVE AGAIN"
+- extendedWaitUntil:
+    notVisible: "DRIVE AGAIN"
+    timeout: 5000

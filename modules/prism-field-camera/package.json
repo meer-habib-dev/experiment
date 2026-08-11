@@ -1,0 +1,7 @@
+{
+  "name": "prism-field-camera",
+  "version": "1.0.0",
+  "description": "Native iOS Camera Control and composited capture view for Prism Field",
+  "main": "index.js",
+  "license": "MIT"
+}

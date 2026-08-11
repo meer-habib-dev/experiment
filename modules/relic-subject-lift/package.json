@@ -1,0 +1,7 @@
+{
+  "name": "relic-subject-lift",
+  "version": "1.0.0",
+  "description": "Native Vision subject extraction and Metal rendering for Relic Lift",
+  "main": "index.js",
+  "license": "MIT"
+}

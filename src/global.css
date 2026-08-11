@@ -1,0 +1,56 @@
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'nativewind/theme';
+
+@layer base {
+  :root {
+    --lab-canvas: rgb(247 247 242);
+    --lab-surface: rgb(255 255 255);
+    --lab-ink: rgb(19 21 24);
+    --lab-muted: rgb(98 103 110);
+    --lab-line: rgb(223 224 218);
+    --lab-chip: rgb(236 237 230);
+    --lab-accent: rgb(90 78 255);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lab-canvas: rgb(12 13 15);
+    --lab-surface: rgb(26 27 30);
+    --lab-ink: rgb(246 246 240);
+    --lab-muted: rgb(166 169 176);
+    --lab-line: rgb(51 53 58);
+    --lab-chip: rgb(39 41 45);
+    --lab-accent: rgb(137 128 255);
+  }
+}
+
+@media ios {
+  :root {
+    --font-sans: system-ui;
+    --font-rounded: ui-rounded;
+    --font-mono: ui-monospace;
+  }
+}
+
+@media android {
+  :root {
+    --font-sans: normal;
+    --font-rounded: normal;
+    --font-mono: monospace;
+  }
+}
+
+@layer theme {
+  @theme {
+    --color-canvas: var(--lab-canvas);
+    --color-surface: var(--lab-surface);
+    --color-ink: var(--lab-ink);
+    --color-muted: var(--lab-muted);
+    --color-line: var(--lab-line);
+    --color-chip: var(--lab-chip);
+    --color-accent: var(--lab-accent);
+  }
+}
