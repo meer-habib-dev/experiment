@@ -1,0 +1,31 @@
+name: Experiment proposal
+description: Propose a focused experiment or substantial capability
+title: "[Proposal]: "
+labels: [proposal]
+body:
+  - type: textarea
+    id: interaction
+    attributes:
+      label: Interaction
+      description: What should a person be able to see and do?
+    validations:
+      required: true
+  - type: textarea
+    id: fit
+    attributes:
+      label: Why it belongs in Native Lab
+      description: Explain the native capability or technique it makes understandable.
+    validations:
+      required: true
+  - type: input
+    id: platforms
+    attributes:
+      label: Intended platforms
+      placeholder: iOS development build; web fallback
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and native requirements
+      description: List proposed packages, permissions, or custom native work.

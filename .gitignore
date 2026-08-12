@@ -34,14 +34,22 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# local environment files (commit only the documented example)
+.env*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 
-example
-
 # generated native folders
 /ios
 /android
+
+# generated reports and private working data
+/outputs/
+/fintech-*
+/private/
+
+# test and editor output
+/coverage/
+/.idea/

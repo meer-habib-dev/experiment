@@ -15,9 +15,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { Canvas as WebGPUCanvas, type CanvasRef, useDevice } from 'react-native-webgpu';
 
-import checkpointAsset from '../../../assets/audio/checkpoint.ogg';
-import crashAsset from '../../../assets/audio/crash.ogg';
-import tapAsset from '../../../assets/audio/tap.ogg';
+import checkpointAsset from '@/assets/audio/checkpoint.ogg';
+import crashAsset from '@/assets/audio/crash.ogg';
+import tapAsset from '@/assets/audio/tap.ogg';
 
 import { TowerFx, type TowerPulse } from '@/features/timberline/tower-fx';
 import { TowerHud } from '@/features/timberline/tower-hud';

@@ -1,4 +1,4 @@
-import { requireNativeModule, requireNativeViewManager } from 'expo-modules-core';
+import { requireNativeModule, requireNativeView } from 'expo';
 import type { ViewProps } from 'react-native';
 
 export type LiftedSubject = {
@@ -20,7 +20,7 @@ type NativeMetalSubjectProps = ViewProps & {
 };
 
 const subjectLiftModule = requireNativeModule<RelicSubjectLiftModule>('RelicSubjectLift');
-const NativeMetalView = requireNativeViewManager<NativeMetalSubjectProps>(
+const NativeMetalView = requireNativeView<NativeMetalSubjectProps>(
   'RelicSubjectLift',
   'RelicMetalView',
 );

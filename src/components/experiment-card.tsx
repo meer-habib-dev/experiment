@@ -11,21 +11,8 @@ type ExperimentCardProps = {
 
 export function ExperimentCard({ experiment, index }: ExperimentCardProps) {
   const href =
-    experiment.slug === 'sign-off'
-      ? '/experiments/sign-off'
-      : experiment.slug === 'folio-shuffle'
-      ? '/experiments/folio-shuffle'
-      : experiment.slug === 'halo-arena'
-      ? '/experiments/halo-arena'
-      : experiment.slug === 'timberline'
-      ? '/experiments/timberline'
-      : experiment.slug === 'relic-lift'
-      ? '/experiments/relic-lift'
-      : experiment.slug === 'rain-lens'
-      ? '/experiments/rain-lens'
-      : experiment.slug === 'volcano-drive'
-        ? '/experiments/volcano-drive'
-        : ({ pathname: '/experiments/[slug]', params: { slug: experiment.slug } } as const);
+    experiment.route ??
+    ({ pathname: '/experiments/[slug]', params: { slug: experiment.slug } } as const);
 
   return (
     <Animated.View entering={FadeInDown.delay(index * 70).springify()}>

@@ -2,7 +2,7 @@ import { Link } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 
 import { ExperimentCard } from '@/components/experiment-card';
-import { experiments } from '@/data/experiments';
+import { availableExperimentCount, experiments } from '@/data/experiments';
 import { Pressable, ScrollView, Text, View } from '@/tw';
 
 export default function HomeScreen() {
@@ -29,7 +29,9 @@ export default function HomeScreen() {
       <View className="flex-row gap-3">
         <View className="flex-1 gap-1 rounded-3xl bg-ink p-4">
           <Text className="font-mono text-xs uppercase tracking-widest text-canvas/60">Ready</Text>
-          <Text className="font-rounded text-3xl font-bold text-canvas">{experiments.length}</Text>
+          <Text className="font-rounded text-3xl font-bold text-canvas">
+            {availableExperimentCount}
+          </Text>
         </View>
         <View className="flex-1 gap-1 rounded-3xl border border-line bg-surface p-4">
           <Text className="font-mono text-xs uppercase tracking-widest text-muted">Engines</Text>

@@ -1,4 +1,4 @@
-import { requireNativeViewManager } from 'expo-modules-core';
+import { requireNativeView } from 'expo';
 import type { NativeSyntheticEvent, ViewProps } from 'react-native';
 
 export type PrismReadyEvent = { cameraControl: boolean; controlCount?: number; device: string };
@@ -52,7 +52,7 @@ type NativeProps = Omit<
   onCapturePress: (event: NativeSyntheticEvent<PrismPressEvent>) => void;
 };
 
-const NativePrismFieldCamera = requireNativeViewManager<NativeProps>(
+const NativePrismFieldCamera = requireNativeView<NativeProps>(
   'PrismFieldCamera',
   'PrismFieldCameraView',
 );

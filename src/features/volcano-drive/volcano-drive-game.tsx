@@ -15,12 +15,12 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Canvas as WebGPUCanvas, type CanvasRef, useDevice } from 'react-native-webgpu';
 
-import checkpointAsset from '../../../assets/audio/checkpoint.ogg';
-import coinAsset from '../../../assets/audio/coin.ogg';
-import crashAsset from '../../../assets/audio/crash.ogg';
-import engineAsset from '../../../assets/audio/engine.ogg';
-import tapAsset from '../../../assets/audio/tap.ogg';
-import turboAsset from '../../../assets/audio/turbo.ogg';
+import checkpointAsset from '@/assets/audio/checkpoint.ogg';
+import coinAsset from '@/assets/audio/coin.ogg';
+import crashAsset from '@/assets/audio/crash.ogg';
+import engineAsset from '@/assets/audio/engine.ogg';
+import tapAsset from '@/assets/audio/tap.ogg';
+import turboAsset from '@/assets/audio/turbo.ogg';
 
 import RaceResults from '@/features/volcano-drive/race-results';
 import { type FxKind, SpeedFx } from '@/features/volcano-drive/speed-fx';

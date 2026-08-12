@@ -1,62 +1,79 @@
 # Native Lab
 
-A build-in-public playground for polished iOS and universal mobile experiments. Each idea lives on
-its own Expo Router route so it can become a focused demo, recording, and social post without
-turning the rest of the app into a monolith.
+Native Lab is a collection of focused React Native experiments: camera effects, tactile gestures,
+Skia shaders, and small WebGPU worlds. Every experiment has a stable Expo Router route and an
+isolated implementation so it can be studied, changed, or removed without understanding the
+entire app.
 
-## Included
+This repository favors working prototypes with readable boundaries over a shared abstraction for
+everything. The experiments are intentionally ambitious; several require an iOS development build
+and recent hardware.
 
-- Expo 57, React Native 0.86, React 19, and typed Expo Router routes
-- NativeWind 5 preview + Tailwind CSS 4 for all application styling
-- React Native Reanimated, Worklets, Gesture Handler, and Expo Haptics
-- React Native Skia for canvas drawing, shaders, and visual effects
-- React Native WebGPU, Three.js, React Three Fiber, and `wgpu-matrix`
-- Expo DOM support through Expo Router's `"use dom"` components
-- React Compiler and the New Architecture from the Expo 57 base
+## Explore the lab
 
-## Run it
+| Experiment | What it demonstrates | Route | Platforms |
+| --- | --- | --- | --- |
+| [Sign Off](src/features/sign-off/README.md) | Gesture-driven signatures and eleven particle erasers | `/experiments/sign-off` | iOS, Android; web preview |
+| [Field Folio](src/features/folio-shuffle/README.md) | Page physics and draggable metal stickers | `/experiments/folio-shuffle` | iOS, Android; web preview |
+| [Halo Arena](src/features/halo-arena/README.md) | Interactive WebGPU stadium booking | `/experiments/halo-arena` | Native dev build |
+| [Timberline](src/features/timberline/README.md) | A touch-controlled physics tower | `/experiments/timberline` | Native dev build |
+| [Prism Field](src/features/prism-field/README.md) | Camera Control, motion, and native compositing | `/experiments/prism-field` | iOS dev build |
+| [Relic Lift](src/features/relic-lift/README.md) | Vision subject extraction and Metal rendering | `/experiments/relic-lift` | iOS dev build |
+| [Rain Lens](src/features/rain-lens/README.md) | Live camera frames processed with Skia | `/experiments/rain-lens` | Native dev build |
+| [Volcano Drive](src/features/volcano-drive/README.md) | An endless-driving WebGPU game | `/experiments/volcano-drive` | Native dev build |
+
+See the [feature index](src/features/README.md) for implementation entry points and runtime notes.
+
+## Run locally
+
+Prerequisites: a current Bun release, Xcode for iOS development builds, and the platform tooling
+required by Expo.
 
 ```bash
-npm run ios
+bun install
+bun start
 ```
 
-Start with Expo Go for the Router, UI, motion, gestures, and most Skia work. WebGPU ships native
-code and needs an iOS development build:
+Expo Go is useful for the gallery shell and lightweight universal UI. Camera integrations, local
+Expo modules, and WebGPU experiments require a development build:
 
 ```bash
-npm run ios:dev
+bun run ios
+# or
+bun run android
 ```
 
-Useful checks:
+Run repository checks and verify that every route can be bundled for web before opening a pull
+request:
 
 ```bash
-npm run typecheck
-npm run lint
-npm run doctor
+bun run validate
+bun run build:web
 ```
 
-## First experiment: Volcano Drive
-
-Open `/experiments/volcano-drive` from the lab home screen. Drag anywhere to steer through
-three-lane traffic, collect coins, trigger turbo and magnet power-ups, and pass checkpoints as the
-road accelerates. The scene is procedural Three.js rendered by native WebGPU, speed streaks are a
-transparent Skia layer, and the crash/results card is an Expo DOM component.
-
-The game sounds in `assets/audio` come from Kenney's CC0 Interface Sounds pack; the local license
-notice is included beside the files. A simulator journey covering ready, driving, and crash states
-is available at `.maestro/volcano-drive.yaml`.
-
-## Structure
+## Repository map
 
 ```text
-src/
-  app/            routes and layouts only
-  components/     reusable visual building blocks
-  data/           experiment registry and metadata
-  tw/             CSS-enabled React Native primitives
-  global.css      NativeWind theme and design tokens
+src/app/          Expo Router screens; routes only
+src/features/     one self-contained directory and README per experiment
+src/components/   components shared by more than one route
+src/data/         typed gallery metadata and route ownership
+src/tw/           project styling primitives
+modules/          local Expo modules for platform-specific capabilities
+assets/           app artwork and attributed audio
+docs/             architecture and maintenance notes
 ```
 
-To start an experiment, add its metadata in `src/data/experiments.ts`, then create or replace its
-screen under `src/app/experiments`. Keep engine-specific helpers beside normal source code—not in
-the route directory—and lazy-load large Skia or WebGPU scenes when practical.
+Route files should stay thin. A route configures navigation and renders one exported feature entry
+point; state, rendering, shaders, and platform adapters belong under `src/features/<slug>`.
+
+## Contributing
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md), then read [docs/architecture.md](docs/architecture.md)
+before adding a new experiment. Bug reports and narrowly scoped improvements are welcome. New
+experiments should include a route, registry entry, and feature README in the same pull request.
+
+## License
+
+Code is available under the [MIT License](LICENSE). Audio under `assets/audio` is from Kenney's CC0
+Interface Sounds pack; its license notice is stored beside the files.
