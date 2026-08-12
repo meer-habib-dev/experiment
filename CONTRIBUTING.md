@@ -24,14 +24,23 @@ one maintainability improvement with a clear way to verify it.
 Use `src/features/<slug>` as the ownership boundary. A complete experiment includes:
 
 ```text
-src/app/experiments/<slug>.tsx     thin route adapter
-src/features/<slug>/README.md      purpose, controls, runtime, and file map
-src/features/<slug>/<entry>.tsx    exported experience component
-src/data/experiments.ts            gallery title, route, status, and tags
+src/app/experiments/<slug>.tsx        thin route adapter
+src/features/<slug>/README.md         purpose, controls, runtime, and file map
+src/features/<slug>/<entry>.tsx       exported experience component
+src/data/experiments.ts               gallery title, tagline, poster, route, status, and tags
+src/components/experiment-poster.tsx  gallery artwork for the new poster key
 ```
 
 Copy [docs/feature-readme-template.md](docs/feature-readme-template.md) and replace every prompt.
 Do not leave placeholder prose in a pull request.
+
+### Gallery poster
+
+Every experiment shows a tile on the home screen, so a new entry needs a `tagline` (two or three
+words) and a `poster` key. Add the key to `PosterArt` in the registry, then compose the artwork in
+`src/components/experiment-poster.tsx`: one palette entry and one `artwork` entry drawn on a 100×100
+grid with plain views, native gradients, and transforms. Keep posters static and asset-free — the
+gallery renders every tile at once, so no canvas, image, or animation loop belongs in a poster.
 
 ## Code expectations
 
