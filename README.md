@@ -9,6 +9,15 @@ This repository favors working prototypes with readable boundaries over a shared
 everything. The experiments are intentionally ambitious; several require an iOS development build
 and recent hardware.
 
+## Demo gallery
+
+Click a preview to watch the complete interaction.
+
+| Volcano Drive | Field Folio | Sign Off |
+| --- | --- | --- |
+| [![Volcano Drive gameplay preview](assets/demo/volcano-drive-preview.jpg)](assets/demo/volcano-drive.mp4) | [![Field Folio interaction preview](assets/demo/folio-shuffle-preview.jpg)](assets/demo/folio-shuffle.mp4) | [![Sign Off interaction preview](assets/demo/sign-off-preview.jpg)](assets/demo/sign-off.mp4) |
+| [Watch gameplay](assets/demo/volcano-drive.mp4) | [Watch the folio interaction](assets/demo/folio-shuffle.mp4) | [Watch the signature effects](assets/demo/sign-off.mp4) |
+
 ## Explore the lab
 
 | Experiment | What it demonstrates | Route | Platforms |
