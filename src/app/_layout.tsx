@@ -30,6 +30,10 @@ export default function RootLayout() {
             options={{ headerShown: false }}
           />
           <Stack.Screen
+            name="experiments/depth-light"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
             name="experiments/folio-shuffle"
             options={{ headerShown: false }}
           />

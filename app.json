@@ -12,12 +12,17 @@
       "icon": "./assets/expo.icon",
       "supportsTablet": true,
       "infoPlist": {
-        "NSCameraUsageDescription": "Allow Native Lab to use your camera for live visual experiments, including Prism Field, Relic Lift, and Rain Lens."
-      }
+        "NSCameraUsageDescription": "Allow Native Lab to use your camera for live visual experiments, including Depth Light, Prism Field, Relic Lift, and Rain Lens."
+      },
+      "appleTeamId": "P56HK88M42"
     },
     "android": {
       "permissions": [
-        "android.permission.CAMERA"
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
       ],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -29,7 +34,7 @@
       "package": "com.meernabib.nativelab"
     },
     "web": {
-      "output": "static",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [

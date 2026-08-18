@@ -22,6 +22,7 @@ type Palette = {
 };
 
 const palettes: Record<PosterArt, Palette> = {
+  depth: { base: ['#171513', '#080808'], glow: '#ff9147', primary: '#fff2cf', secondary: '#ff9147' },
   ink: { base: ['#17181c', '#090a0c'], glow: '#8f86ff', primary: '#f6f4ec', secondary: '#8f86ff' },
   folio: { base: ['#181a17', '#090a09'], glow: '#e2523c', primary: '#f7f1e2', secondary: '#e2523c' },
   arena: { base: ['#121b18', '#070908'], glow: '#3ddc97', primary: '#3ddc97', secondary: '#0f6f52' },
@@ -102,6 +103,38 @@ function dot(unit: number, x: number, y: number, d: number, color: string, opaci
 }
 
 const artwork: Record<PosterArt, (unit: number, palette: Palette) => ReactNode> = {
+  /** Depth Light — a near hand interrupts a light projected into the scene. */
+  depth: (u, p) => (
+    <>
+      <View
+        style={{
+          ...box(u, 6, 8, 88, 88),
+          borderRadius: 44 * u,
+          experimental_backgroundImage: `radial-gradient(circle at 27% 40%, ${p.primary} 0%, ${p.secondary}99 11%, transparent 42%)`,
+          opacity: 0.92,
+        }}
+      />
+      <View
+        style={{
+          ...box(u, 38, 16, 35, 84),
+          backgroundColor: '#161411',
+          borderRadius: 18 * u,
+          boxShadow: `${-7 * u}px 0 ${14 * u}px rgba(255,145,71,0.5)`,
+          transform: [{ rotate: '-18deg' }],
+        }}
+      />
+      <View style={dot(u, 17, 35, 17, p.primary, 1)} />
+      <View
+        style={{
+          ...box(u, 17, 35, 17, 17),
+          borderColor: '#ffffff',
+          borderRadius: 9 * u,
+          borderWidth: 1.5 * u,
+          boxShadow: `0 0 ${16 * u}px ${p.glow}`,
+        }}
+      />
+    </>
+  ),
   /** Sign Off — a signature swash breaking apart into ink. */
   ink: (u, p) => (
     <>

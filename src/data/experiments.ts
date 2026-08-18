@@ -6,6 +6,7 @@ import type { Href } from 'expo-router';
  */
 export type PosterArt =
   | 'arena'
+  | 'depth'
   | 'folio'
   | 'ink'
   | 'lens'
@@ -29,6 +30,16 @@ export type Experiment = {
 };
 
 export const experiments: Experiment[] = [
+  {
+    slug: 'depth-light',
+    title: 'Depth Light',
+    tagline: 'Hold the light',
+    description: 'Drag a living light through the camera and watch real depth wrap it around faces, hands, and space.',
+    status: 'available',
+    poster: 'depth',
+    tech: ['vision camera', 'typegpu', 'webgpu', 'true depth'],
+    route: '/experiments/depth-light',
+  },
   {
     slug: 'sign-off',
     title: 'Sign Off',
