@@ -10,6 +10,7 @@ export type PosterArt =
   | 'folio'
   | 'ink'
   | 'lens'
+  | 'paint'
   | 'particles'
   | 'prism'
   | 'relic'
@@ -30,6 +31,16 @@ export type Experiment = {
 };
 
 export const experiments: Experiment[] = [
+  {
+    slug: 'paint-pull',
+    title: 'Paint Pull',
+    tagline: 'Pattern & pull',
+    description: 'Generate a field of marks, then pull a tactile squeegee through it to paint a one-of-a-kind ribbon composition.',
+    status: 'available',
+    poster: 'paint',
+    tech: ['skia', 'procedural art', 'gestures', 'haptics'],
+    route: '/experiments/paint-pull',
+  },
   {
     slug: 'depth-light',
     title: 'Depth Light',

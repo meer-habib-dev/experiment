@@ -30,6 +30,7 @@ const palettes: Record<PosterArt, Palette> = {
   prism: { base: ['#15161e', '#08090d'], glow: '#6f7bff', primary: '#ffffff', secondary: '#6f7bff' },
   relic: { base: ['#15181c', '#08090c'], glow: '#93a2b8', primary: '#e9eff7', secondary: '#7d8ca3' },
   lens: { base: ['#10161f', '#06080c'], glow: '#4aa8ff', primary: '#8fccff', secondary: '#2b6bd6' },
+  paint: { base: ['#191813', '#080807'], glow: '#ffbe24', primary: '#ff493d', secondary: '#1487f4' },
   road: { base: ['#1c110f', '#0a0605'], glow: '#ff5b2e', primary: '#ff8a3d', secondary: '#ff2d18' },
   particles: {
     base: ['#161320', '#08070c'],
@@ -103,6 +104,41 @@ function dot(unit: number, x: number, y: number, d: number, color: string, opaci
 }
 
 const artwork: Record<PosterArt, (unit: number, palette: Palette) => ReactNode> = {
+  /** Paint Pull — a bright ribbon field gathered by a squeegee. */
+  paint: (u) => (
+    <>
+      {['#FF493D', '#FFBE24', '#24B879', '#1487F4', '#F05AB5', '#F8F7F2'].map(
+        (color, index) => (
+          <View
+            key={color}
+            style={{
+              ...box(u, 13 + index * 12, 14 + (index % 2) * 3, 9, 66 - index * 2),
+              backgroundColor: color,
+              borderRadius: 5 * u,
+              transform: [{ rotate: `${-8 + index * 3}deg` }],
+            }}
+          />
+        ),
+      )}
+      <View
+        style={{
+          ...box(u, 4, 68, 87, 10),
+          backgroundColor: '#F6F6F4',
+          borderRadius: 5 * u,
+          boxShadow: `0 ${5 * u}px ${12 * u}px rgba(0,0,0,0.55)`,
+          transform: [{ rotate: '4deg' }],
+        }}
+      />
+      <View
+        style={{
+          ...box(u, 45, 75, 10, 23),
+          backgroundColor: '#E7E7E3',
+          borderRadius: 5 * u,
+          transform: [{ rotate: '4deg' }],
+        }}
+      />
+    </>
+  ),
   /** Depth Light — a near hand interrupts a light projected into the scene. */
   depth: (u, p) => (
     <>
