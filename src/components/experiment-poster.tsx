@@ -30,6 +30,7 @@ const palettes: Record<PosterArt, Palette> = {
   prism: { base: ['#15161e', '#08090d'], glow: '#6f7bff', primary: '#ffffff', secondary: '#6f7bff' },
   relic: { base: ['#15181c', '#08090c'], glow: '#93a2b8', primary: '#e9eff7', secondary: '#7d8ca3' },
   lens: { base: ['#10161f', '#06080c'], glow: '#4aa8ff', primary: '#8fccff', secondary: '#2b6bd6' },
+  ocean: { base: ['#111111', '#000000'], glow: '#ffffff', primary: '#ffffff', secondary: '#9c9c9c' },
   paint: { base: ['#191813', '#080807'], glow: '#ffbe24', primary: '#ff493d', secondary: '#1487f4' },
   road: { base: ['#1c110f', '#0a0605'], glow: '#ff5b2e', primary: '#ff8a3d', secondary: '#ff2d18' },
   particles: {
@@ -104,6 +105,39 @@ function dot(unit: number, x: number, y: number, d: number, color: string, opaci
 }
 
 const artwork: Record<PosterArt, (unit: number, palette: Palette) => ReactNode> = {
+  /** Signal Garden — tiny line creatures drifting in a loose constellation. */
+  ocean: (u, p) => (
+    <>
+      {[
+        [18, 24, 1], [48, 17, 0.7], [73, 28, 1.15], [32, 52, 0.85],
+        [65, 61, 0.72], [84, 47, 0.55], [17, 75, 0.62], [47, 83, 0.5],
+      ].map(([x, y, s], index) => (
+        <View key={`octopus-${index}`} style={{ ...box(u, x, y, 14 * s, 14 * s) }}>
+          <View
+            style={{
+              ...box(u, 3 * s, 1 * s, 8 * s, 7 * s),
+              borderColor: p.primary,
+              borderRadius: 5 * u * s,
+              borderWidth: Math.max(0.7, u * 0.8),
+              opacity: 0.45 + s * 0.3,
+            }}
+          />
+          {[-3, 0, 3, 6].map((offset, arm) => (
+            <View
+              key={offset}
+              style={{
+                ...box(u, (3 + arm * 2) * s, 7 * s, 1 * s, 7 * s),
+                backgroundColor: p.primary,
+                borderRadius: u,
+                opacity: 0.4 + s * 0.25,
+                transform: [{ rotate: `${offset * 6}deg` }],
+              }}
+            />
+          ))}
+        </View>
+      ))}
+    </>
+  ),
   /** Paint Pull — a bright ribbon field gathered by a squeegee. */
   paint: (u) => (
     <>

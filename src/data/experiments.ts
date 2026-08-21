@@ -10,6 +10,7 @@ export type PosterArt =
   | 'folio'
   | 'ink'
   | 'lens'
+  | 'ocean'
   | 'paint'
   | 'particles'
   | 'prism'
@@ -31,6 +32,16 @@ export type Experiment = {
 };
 
 export const experiments: Experiment[] = [
+  {
+    slug: 'signal-garden',
+    title: 'Signal Garden',
+    tagline: 'Touch & connect',
+    description: 'Enter a drifting field of tiny octopuses. Touch one to send a quiet signal through its nearest neighbors and grow a moment of calm.',
+    status: 'available',
+    poster: 'ocean',
+    tech: ['skia', 'generative motion', 'proximity', 'haptics'],
+    route: '/experiments/signal-garden',
+  },
   {
     slug: 'paint-pull',
     title: 'Paint Pull',
